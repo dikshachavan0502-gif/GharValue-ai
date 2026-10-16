@@ -57,19 +57,67 @@ def predict_price(model, summary, city: str, locality: str, area: float, bhk: fl
 
 def apply_design() -> None:
     """Reuse the existing navy/teal visual direction in Streamlit's layout."""
-    st.markdown(
-        """
-        <style>
-        .stApp { background: #ffffff; color: #243b53; }
-        h1, h2, h3 { color: #102a43; }
-        .hero { padding: 2.8rem 0 2rem; background: radial-gradient(circle at 80% 30%, #d5f1ef, transparent 35%); }
-        .eyebrow { color: #087e8b; font-size: .75rem; font-weight: 700; letter-spacing: .13em; }
-        .estimate { background: #f0fbfa; border: 1px solid #d5f1ef; border-radius: 14px; padding: 1.5rem; }
-        .muted { color: #627d98; }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
+   
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background: #ffffff;
+        color: #243b53;
+    }
+
+    h1, h2, h3 {
+        color: #102a43 !important;
+    }
+
+    .hero {
+        padding: 2.8rem 0 2rem;
+        background: radial-gradient(
+            circle at 80% 30%,
+            #d5f1ef,
+            transparent 35%
+        );
+    }
+
+    .eyebrow {
+        color: #087e8b;
+        font-size: .75rem;
+        font-weight: 700;
+        letter-spacing: .13em;
+    }
+
+    .estimate {
+        background: #f0fbfa;
+        border: 1px solid #d5f1ef;
+        border-radius: 14px;
+        padding: 1.5rem;
+    }
+
+    .muted {
+        color: #627d98;
+    }
+
+    /* Fix model evaluation metric visibility */
+    div[data-testid="stMetricLabel"],
+    div[data-testid="stMetricLabel"] p,
+    div[data-testid="stMetricValue"],
+    div[data-testid="stMetricValue"] div,
+    div[data-testid="stMetricDelta"] {
+        color: #243b53 !important;
+        opacity: 1 !important;
+    }
+
+    /* Fix custom metric labels and values */
+    .metric-label,
+    .metric-value {
+        color: #243b53 !important;
+        opacity: 1 !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 
 
 def main() -> None:
