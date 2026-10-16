@@ -1,0 +1,9 @@
+Flask>=3.0
+pandas>=2.0
+numpy>=1.26
+# Serialized scikit-learn pipelines are not reliably portable between releases.
+# Keep the runtime version aligned with the model artifact produced by this project.
+scikit-learn==1.9.1
+joblib>=1.3
+requests>=2.31
+streamlit>=1.35
